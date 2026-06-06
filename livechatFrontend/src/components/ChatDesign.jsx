@@ -56,6 +56,28 @@ function ChatDesign() {
       }
     });
 
+
+
+//     ✅ Server side (correct way)   // ahi upar code ma wrong practice chhe...server bahda user ne badha message send kare chhe ane te badhamathi aapane filter karine show karie chhie je unnecessary sapce roke ane priveacy pan leak thavana chances chhe to wrong chhe aa
+// socket.on("join-room", (room) => {
+//   socket.join(room);
+// });
+
+// socket.on("send-message", async (msg) => {
+//   const saved = await Message.create(msg);
+
+//   const room = [msg.sender, msg.receiver].sort().join("_");
+
+//   io.to(room).emit("receive-message", saved);
+// });
+// ✅ Client side
+// useEffect(() => {
+//   if (activeUser) {
+//     const room = [username, activeUser].sort().join("_");
+//     socket.emit("join-room", room);
+//   }
+// }, [activeUser]);
+
     return () => socket.off("receive-message");  //👉 Cleanup → duplicate listeners se bachne ke liye
   }, [activeUser]);
 
@@ -170,7 +192,6 @@ function ChatDesign() {
 export default ChatDesign;
 
 // for(let i=0; i<4; i++){
-
 //     for(let col=0; col<=i; col++){
 //     let string = "*"
 //     console.log(string)

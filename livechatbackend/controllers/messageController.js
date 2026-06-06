@@ -34,7 +34,7 @@ exports.getMessages = async (req, res) => {
         ]
       }).sort({ timestamp: 1 });
     } else {
-      messages = await Message.find({ receiver: null }).sort({ timestamp: 1 });
+      messages = await Message.find({ receiver: null }).sort({ timestamp: 1 });  // group chat...jo chatwith no hoy to all message aapi dyo ..because model ma receiver bydefault null rakhel chhe
     }
     res.json(messages);
   } catch (err) {
